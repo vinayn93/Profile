@@ -79,6 +79,8 @@ document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe
 const updateScrollState = () => {
     const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+    const camera = Math.max(-160, window.scrollY * -0.08);
+    document.documentElement.style.setProperty('--scene-camera', `${camera}px`);
     scrollProgress.style.width = `${progress}%`;
     backToTop.classList.toggle('visible', window.scrollY > 500);
 };
