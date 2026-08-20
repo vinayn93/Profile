@@ -88,6 +88,30 @@
         }
         header::before { content: ''; position: absolute; width: 280px; height: 280px; border: 1px solid rgba(255,255,255,0.12); border-radius: 50%; top: -120px; right: 8%; }
         header .container { position: relative; z-index: 1; }
+        .hero-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 56px; text-align: left; }
+        .hero-copy { max-width: 620px; }
+        .hero-kicker { color: #8bd7ff; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 18px; }
+        .hero-copy h1 { font-size: clamp(2.6rem, 5vw, 4.5rem); line-height: 1.05; margin-bottom: 18px; letter-spacing: -0.03em; }
+        .hero-copy .tagline { max-width: 420px; }
+        .hero-copy .btn-container { text-align: left; }
+        .hero-visual { min-height: 390px; display: grid; place-items: center; perspective: 1200px; position: relative; }
+        .hero-grid { position: absolute; inset: 8% -10% 4%; opacity: 0.3; background-image: linear-gradient(rgba(139,215,255,0.13) 1px, transparent 1px), linear-gradient(90deg, rgba(139,215,255,0.13) 1px, transparent 1px); background-size: 32px 32px; transform: rotateX(62deg) rotateZ(-8deg) translateY(50px); mask-image: linear-gradient(to bottom, transparent, #000 25%, transparent 90%); }
+        .depth-card { width: min(100%, 370px); aspect-ratio: 1.08; padding: 25px; border: 1px solid rgba(139,215,255,0.42); border-radius: 18px; background: linear-gradient(145deg, rgba(34,63,79,0.96), rgba(12,25,34,0.96)); box-shadow: 28px 35px 0 rgba(5,14,20,0.28), 0 30px 70px rgba(0,0,0,0.3); transform: rotateX(8deg) rotateY(-14deg) rotateZ(2deg); transform-style: preserve-3d; transition: transform 0.2s ease-out; position: relative; z-index: 1; }
+        .depth-card::before { content: ''; position: absolute; inset: 12px -18px -18px 12px; border: 1px solid rgba(139,215,255,0.18); border-radius: 18px; transform: translateZ(-35px); }
+        .depth-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,255,255,0.16), transparent 35%); pointer-events: none; }
+        .window-bar { display: flex; align-items: center; gap: 7px; padding-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+        .window-bar span { width: 9px; height: 9px; border-radius: 50%; background: #ff6b6b; }
+        .window-bar span:nth-child(2) { background: #ffd166; }
+        .window-bar span:nth-child(3) { background: #72e6a5; }
+        .window-title { color: rgba(255,255,255,0.52); font: 0.7rem monospace; margin-left: auto; }
+        .code-block { padding-top: 25px; font: 0.88rem/1.9 monospace; color: #dff7ff; transform: translateZ(32px); }
+        .code-block .blue { color: #8bd7ff; }
+        .code-block .green { color: #72e6a5; }
+        .code-block .yellow { color: #ffd166; }
+        .hero-badge { position: absolute; right: -12px; bottom: 42px; background: #f4c95d; color: #13212a; padding: 12px 16px; border-radius: 10px; font-size: 0.78rem; font-weight: 800; box-shadow: 8px 10px 0 rgba(5,14,20,0.25); transform: translateZ(70px) rotateZ(-5deg); z-index: 2; }
+        .hero-meta { display: flex; gap: 28px; margin-top: 26px; }
+        .hero-meta strong { display: block; font-size: 1.4rem; color: #fff; }
+        .hero-meta span { color: rgba(255,255,255,0.62); font-size: 0.78rem; }
         .profile-img {
             width: 160px; height: 160px; border-radius: 50%;
             border: 4px solid rgba(255, 255, 255, 0.5); object-fit: cover;
@@ -146,7 +170,7 @@
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
         .skill-card {
             background: var(--surface-color); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); text-align: center;
-            transition: 0.3s; transform: translateY(0);
+            transition: box-shadow 0.3s, border-color 0.3s, transform 0.2s ease-out; transform: perspective(900px) rotateX(0) rotateY(0) translateY(0); transform-style: preserve-3d;
         }
         .skill-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--accent-color); }
         .skill-card i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; }
@@ -161,7 +185,7 @@
         .project-card {
             background: var(--surface-color); padding: 25px; border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.2s ease-out, box-shadow 0.3s ease; transform-style: preserve-3d;
         }
         .project-card + .project-card { margin-top: 25px; }
         .project-card:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(0,0,0,0.12); }
@@ -190,6 +214,13 @@
             .btn { display: block; margin: 10px auto; width: 80%; } /* Stack buttons on mobile */
             header { padding: 80px 0; }
             header h1 { font-size: 2.2rem; }
+            .hero-layout { grid-template-columns: 1fr; gap: 35px; text-align: center; }
+            .hero-copy { margin: 0 auto; }
+            .hero-copy .btn-container { text-align: center; }
+            .hero-visual { min-height: 310px; }
+            .hero-meta { justify-content: center; }
+            .depth-card { width: min(100%, 330px); }
+            .hero-badge { right: 0; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -224,18 +255,48 @@
 
     <header>
         <div class="container">
-            <h1>Nagireddy Vinay Sai Kumar</h1>
-            <p>B.Tech Computer Science Undergraduate</p>
-            <p class="tagline">Lovely Professional University | Class of 2029</p>
-            
-            <div class="btn-container">
-                <a href="#education" class="btn btn-primary">
-                    <i class="fas fa-graduation-cap"></i> View Education
-                </a>
-                
-                <a href="#contact" class="btn btn-outline">
-                    <i class="fas fa-paper-plane"></i> Contact Me
-                </a>
+            <div class="hero-layout">
+                <div class="hero-copy reveal">
+                    <p class="hero-kicker">Computer Science / Builder / Problem Solver</p>
+                    <h1>Nagireddy Vinay Sai Kumar</h1>
+                    <p>B.Tech Computer Science Undergraduate</p>
+                    <p class="tagline">Lovely Professional University | Class of 2029</p>
+
+                    <div class="btn-container">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> Explore My Work
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-paper-plane"></i> Contact Me
+                        </a>
+                    </div>
+
+                    <div class="hero-meta">
+                        <div><strong>04</strong><span>Skill groups</span></div>
+                        <div><strong>02</strong><span>Featured projects</span></div>
+                        <div><strong>2029</strong><span>Graduation goal</span></div>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <div class="hero-grid"></div>
+                    <div class="depth-card" data-tilt>
+                        <div class="window-bar">
+                            <span></span><span></span><span></span>
+                            <span class="window-title">vinay.dev</span>
+                        </div>
+                        <div class="code-block">
+                            <div><span class="blue">const</span> profile = {</div>
+                            <div>&nbsp;&nbsp;name: <span class="green">"Vinay"</span>,</div>
+                            <div>&nbsp;&nbsp;focus: <span class="green">"building"</span>,</div>
+                            <div>&nbsp;&nbsp;skills: [<span class="yellow">"C"</span>, <span class="yellow">"Python"</span>],</div>
+                            <div>&nbsp;&nbsp;curiosity: <span class="blue">Infinity</span></div>
+                            <div>};</div>
+                        </div>
+                        <div class="hero-badge"><i class="fas fa-sparkles"></i> Open to opportunities</div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -363,6 +424,26 @@
         const backToTop = document.getElementById('backToTop');
         const sections = document.querySelectorAll('section, footer');
         const sectionLinks = document.querySelectorAll('.nav-links a');
+        const tiltItems = document.querySelectorAll('.skill-card, .project-card, .depth-card');
+        const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!motionReduced) {
+            tiltItems.forEach((item) => {
+                item.addEventListener('pointermove', (event) => {
+                    const bounds = item.getBoundingClientRect();
+                    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+                    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+                    const depth = item.classList.contains('depth-card');
+                    const base = depth ? 'rotateZ(2deg)' : 'translateY(-4px)';
+                    item.style.transform = `perspective(900px) rotateX(${y * -10}deg) rotateY(${x * 12}deg) ${base}`;
+                });
+                item.addEventListener('pointerleave', () => {
+                    item.style.transform = item.classList.contains('depth-card')
+                        ? 'rotateX(8deg) rotateY(-14deg) rotateZ(2deg)'
+                        : 'perspective(900px) rotateX(0) rotateY(0) translateY(0)';
+                });
+            });
+        }
 
         const setTheme = (isDark) => {
             body.classList.toggle('dark-mode', isDark);
