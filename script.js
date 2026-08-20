@@ -6,7 +6,8 @@ const scrollProgress = document.getElementById('scrollProgress');
 const backToTop = document.getElementById('backToTop');
 const sections = document.querySelectorAll('section, footer');
 const sectionLinks = document.querySelectorAll('.nav-links a');
-const tiltItems = document.querySelectorAll('.skill-card, .project-card, .depth-card');
+const tiltItems = document.querySelectorAll('.skill-card, .project-card, .edu-card, .depth-card');
+const interactiveButtons = document.querySelectorAll('.btn, .project-btn');
 const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (!motionReduced) {
@@ -20,13 +21,28 @@ if (!motionReduced) {
             item.style.transform = `perspective(900px) rotateX(${y * -10}deg) rotateY(${x * 12}deg) ${base}`;
         });
         item.addEventListener('pointerleave', () => {
-            item.style.transform = item.classList.contains('depth-card')
+                item.style.transform = item.classList.contains('depth-card')
                 ? 'rotateX(8deg) rotateY(-14deg) rotateZ(2deg)'
                 : 'perspective(900px) rotateX(0) rotateY(0) translateY(0)';
         });
     });
 }
 
+
+document.addEventListener('pointermove', (event) => {
+    document.documentElement.style.setProperty('--pointer-x', `${event.clientX}px`);
+    document.documentElement.style.setProperty('--pointer-y', `${event.clientY}px`);
+});
+
+interactiveButtons.forEach((button) => button.addEventListener('click', (event) => {
+    const ripple = document.createElement('span');
+    const bounds = button.getBoundingClientRect();
+    ripple.className = 'ripple';
+    ripple.style.left = `${event.clientX - bounds.left}px`;
+    ripple.style.top = `${event.clientY - bounds.top}px`;
+    button.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+}));
 const setTheme = (isDark) => {
     body.classList.toggle('dark-mode', isDark);
     themeToggle.innerHTML = `<i class="fas fa-${isDark ? 'sun' : 'moon'}" aria-hidden="true"></i>`;
