@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="dark-mode">
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">PROFILE<span></span></a>
+            <a href="#" class="logo">Portfolio<span></span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
@@ -35,10 +35,24 @@
         <div class="container">
             <div class="hero-layout">
                 <div class="hero-copy reveal">
-                    <p class="hero-kicker">Computer Science / Builder / Problem Solver</p>
-                    <h1>Nagireddy Vinay Sai Kumar</h1>
-                    <p>B.Tech Computer Science Undergraduate</p>
-                    <p class="tagline">Lovely Professional University | Class of 2029</p>
+                    <span class="hero-kicker">Hello, I'm</span>
+                    <h1>Nagireddy <span>Vinay Sai Kumar</span></h1>
+                    <p class="role-line">B.Tech Computer Science Undergraduate</p>
+                    <p class="tagline" data-strings="Lovely Professional University | Class of 2029, Building creative digital experiences, Solving real-world problems with code">Lovely Professional University | Class of 2029</p>
+
+                    <div class="hero-status">
+                        <span class="status-dot"></span>
+                        Building with code, design, and problem solving
+                    </div>
+
+                    <div class="hero-tech" aria-label="Technology stack">
+                        <span>Python</span>
+                        <span>JavaScript</span>
+                        <span>C</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>DBMS</span>
+                    </div>
 
                     <div class="btn-container">
                         <a href="#projects" class="btn btn-primary">
@@ -59,34 +73,60 @@
 
                 <div class="hero-visual reveal">
                     <div class="hero-grid"></div>
-                    <div class="depth-card" data-tilt>
-                        <div class="window-bar">
-                            <span></span><span></span><span></span>
-                            <span class="window-title">vinay.dev</span>
+                    <div class="portrait-panel" data-tilt>
+                        <div class="portrait-frame">
+                            <img src="https://i.ibb.co/dwSwvSk3/photo1.png" alt="photo1" class="portrait-image">
                         </div>
-                        <div class="code-block">
-                            <div><span class="blue">const</span> profile = {</div>
-                            <div>&nbsp;&nbsp;name: <span class="green">"Vinay"</span>,</div>
-                            <div>&nbsp;&nbsp;focus: <span class="green">"building"</span>,</div>
-                            <div>&nbsp;&nbsp;skills: [<span class="yellow">"C"</span>, <span class="yellow">"Python"</span>],</div>
-                            <div>&nbsp;&nbsp;curiosity: <span class="blue">Infinity</span></div>
-                            <div>};</div>
-                        </div>
-                        <div class="hero-badge"><i class="fas fa-sparkles"></i> Open to opportunities</div>
+                        <div class="hero-badge"><i class="fas fa-briefcase"></i> Open to opportunities</div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
+    <section class="highlights section-padding" aria-label="Career highlights">
+        <div class="container">
+            <div class="showcase-grid">
+                <article class="highlight-card reveal">
+                    <span class="chip">01</span>
+                    <h3>Problem Solving</h3>
+                    <p>Focused on building logic-driven solutions and improving efficiency through clean, scalable code.</p>
+                </article>
+                <article class="highlight-card reveal">
+                    <span class="chip">02</span>
+                    <h3>Web Development</h3>
+                    <p>Crafting responsive interfaces with modern HTML, CSS, and JavaScript experiences.</p>
+                </article>
+                <article class="highlight-card reveal">
+                    <span class="chip">03</span>
+                    <h3>Core CS</h3>
+                    <p>Strong foundation in programming concepts, data structures, and product-focused thinking.</p>
+                </article>
+                <article class="highlight-card reveal">
+                    <span class="chip">04</span>
+                    <h3>Career Ready</h3>
+                    <p>Eager to contribute to teams that value learning, creativity, and impactful engineering.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <section id="about" class="section-padding">
         <div class="container">
             <div class="text-center"><h2 class="section-title">About Me</h2></div>
-            <div class="text-center reveal">
-                <p class="about-copy" style="max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
-                    I am a dedicated Computer Science student with a keen interest in <strong>Software Development</strong> and <strong>Problem Solving</strong>. 
-                    I am eager to apply my skills to build efficient solutions and am currently seeking internship opportunities.
-                </p>
+            <div class="about-layout reveal">
+                <div class="about-card about-copy-card">
+                    <p class="about-copy">
+                        I am a dedicated Computer Science student with a keen interest in <strong>Software Development</strong> and <strong>Problem Solving</strong>.
+                        I enjoy turning ideas into practical, user-friendly digital experiences and I am eager to apply my skills to build efficient solutions.
+                    </p>
+                </div>
+                <div class="about-card about-metrics-card">
+                    <div class="metric-pill"><strong>Problem</strong><span>Solving</span></div>
+                    <div class="metric-pill"><strong>Web</strong><span>Development</span></div>
+                    <div class="metric-pill"><strong>Core</strong><span>CS</span></div>
+                    <div class="metric-pill"><strong>Growth</strong><span>Mindset</span></div>
+                </div>
             </div>
         </div>
     </section>
@@ -121,15 +161,17 @@
             <div class="skills-grid">
                 <div class="skill-card reveal">
                     <i class="fas fa-code"></i>
-                    <h3>Programming</h3>
+                    <h3>Languages</h3>
                     <div class="skill-tags">
+                        <span>C++</span>
                         <span>Python</span>
                         <span>C</span>
+                        <span>SQL</span>
                     </div>
                 </div>
                 <div class="skill-card reveal">
                     <i class="fas fa-laptop-code"></i>
-                    <h3>Web Development- Basics</h3>
+                    <h3>Web Development</h3>
                     <div class="skill-tags">
                         <span>HTML5</span>
                         <span>CSS</span>
@@ -138,16 +180,20 @@
                 </div>
                 <div class="skill-card reveal">
                     <i class="fas fa-database"></i>
-                    <h3>Database</h3>
+                    <h3>Core Concepts</h3>
                     <div class="skill-tags">
+                        <span>DSA</span>
+                        <span>OOPS</span>
                         <span>DBMS</span>
+                        <span>Computer Networks</span>
                     </div>
                 </div>
                 <div class="skill-card reveal">
                     <i class="fas fa-users"></i>
                     <h3>Soft Skills</h3>
                     <div class="skill-tags">
-                        <span>Team Collaboration</span>
+                        <span>Problem-Solving</span>
+                        <span>Adaptability</span>
                         <span>Time Management</span>
                     </div>
                 </div>
@@ -155,17 +201,92 @@
         </div>
     </section>
 
-    <section id="projects" class="section-padding" style="background-color: #f9f9f9;">
+    <section class="stack-section section-padding" aria-label="Tools and learning">
+        <div class="container">
+            <div class="stack-layout">
+                <div class="stack-card reveal">
+                    <div class="stack-header">
+                        <span class="stack-badge">Tools/Platforms</span>
+                    </div>
+                    <h3>Version Control</h3>
+                    <div class="stack-tags">
+                        <span>Git</span>
+                        <span>GitHub</span>
+                    </div>
+                    <h3>Database</h3>
+                    <div class="stack-tags">
+                        <span>MongoDB</span>
+                    </div>
+                    <h3>Development</h3>
+                    <div class="stack-tags">
+                        <span>VS Code</span>
+                    </div>
+                </div>
+
+                <div class="stack-card reveal">
+                    <div class="stack-header">
+                        <span class="stack-badge">Currently Learning</span>
+                    </div>
+                    <h3>DSA in C++</h3>
+                    <p>Improving problem-solving skills and logic building through competitive coding.</p>
+                    <h3>ML Fundamentals</h3>
+                    <p>Exploring machine learning basics and practical applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section section-padding" aria-label="GitHub and coding stats">
+        <div class="container">
+            <div class="text-center"><h2 class="section-title">Profiles</h2></div>
+            <div class="stats-grid reveal">
+                <div class="stats-card geeks-card">
+                    <div class="stats-label">GeeksforGeeks</div>
+                    <img class="gfg-logo" src="https://i.ibb.co/pr9vQW74/geeksforgeeks.png" alt="geeksforgeeks" />
+                    <h3>Profile</h3>
+                    <p>DSA practice, coding consistency, and problem-solving mindset.</p>
+                    <a class="gfg-link" href="https://www.geeksforgeeks.org/profile/nvskumar93" target="_blank" rel="noopener noreferrer">Visit Profile</a>
+                </div>
+                <div class="stats-card github-card">
+                    <div class="stats-label">GitHub</div>
+                    <div class="github-icon"><i class="fab fa-github"></i></div>
+                    <h3>Repository</h3>
+                    <p>Open source contributions and project repositories.</p>
+                    <a class="gfg-link" href="https://github.com/vinayn93" target="_blank" rel="noopener noreferrer">Visit GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-padding">
         <div class="container">
             <div class="text-center"><h2 class="section-title">Projects</h2></div>
             <div style="text-align: center; color: #666;">
                 <div class="project-card reveal">
+                    <div class="project-topline">
+                        <span class="project-type">Personal Brand</span>
+                        <span class="project-status">Live</span>
+                    </div>
                     <h3 style="color: var(--secondary-color);">Portfolio Website</h3>
-                    <p>Designed and developed a responsive personal portfolio website using HTML5 and CSS3.</p>
+                    <p>Designed and developed a responsive personal portfolio website using HTML5 and CSS3 with creative motion and modern UI polish.</p>
+                    <div class="stack-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
                 </div>
                 <div class="project-card reveal">
-                    <h3 style="color: var(--secondary-color);">Career Path Finder</h3>
+                    <div class="project-topline">
+                        <span class="project-type">Career Path Recommender</span>
+                        <span class="project-status">App</span>
+                    </div>
+                    <h3 style="color: var(--secondary-color);">Career Path Recommender</h3>
                     <p>A web application that helps users discover suitable career paths based on their interests and skills.</p>
+                    <div class="stack-tags">
+                        <span>Web App</span>
+                        <span>UX</span>
+                        <span>Recommendation</span>
+                    </div>
                     <a href="https://career-path-recommender-khaki.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-btn">
                         <i class="fas fa-external-link-alt"></i> View Project
                     </a>
