@@ -9,6 +9,11 @@ const sectionLinks = document.querySelectorAll('.nav-links a');
 const tiltItems = document.querySelectorAll('.skill-card, .project-card, .edu-card, .portrait-panel, .highlight-card');
 const interactiveButtons = document.querySelectorAll('.btn, .project-btn');
 const scenePanels = document.querySelectorAll('section, footer');
+const certificateButtons = document.querySelectorAll('.certificate-preview');
+const certificateModal = document.getElementById('certificateModal');
+const certificateFrame = document.getElementById('certificateFrame');
+const certificateModalTitle = document.getElementById('certificateModalTitle');
+const closeCertificate = document.querySelector('.certificate-close');
 const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const cursorGlow = document.createElement('div');
@@ -198,6 +203,47 @@ const activeObserver = new IntersectionObserver((entries) => {
 sections.forEach((section) => activeObserver.observe(section));
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+const openCertificateModal = (pdfUrl, title) => {
+    if (!certificateModal || !certificateFrame) return;
+    certificateFrame.src = pdfUrl;
+    certificateModalTitle.textContent = title;
+    certificateModal.classList.add('open');
+    certificateModal.setAttribute('aria-hidden', 'false');
+};
+
+const closeCertificateModal = () => {
+    if (!certificateModal || !certificateFrame) return;
+    certificateModal.classList.remove('open');
+    certificateModal.setAttribute('aria-hidden', 'true');
+    certificateFrame.src = '';
+};
+
+certificateButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const pdfUrl = button.dataset.pdf;
+        const title = button.dataset.title || 'Certificate';
+        openCertificateModal(pdfUrl, title);
+    });
+});
+
+if (closeCertificate) {
+    closeCertificate.addEventListener('click', closeCertificateModal);
+}
+
+if (certificateModal) {
+    certificateModal.addEventListener('click', (event) => {
+        if (event.target.hasAttribute('data-close')) {
+            closeCertificateModal();
+        }
+    });
+}
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && certificateModal && certificateModal.classList.contains('open')) {
+        closeCertificateModal();
+    }
+});
 
 buildFloatingOrbs();
 buildBackgroundParticles();

@@ -16,6 +16,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact" class="nav-btn">Contact</a></li>
             </ul>
@@ -200,6 +201,70 @@
             </div>
         </div>
     </section>
+
+    <section id="certificates" class="section-padding">
+        <div class="container">
+            <div class="text-center"><h2 class="section-title">Certificates</h2></div>
+            <div class="certificates-grid reveal">
+                <article class="certificate-card">
+                    <button class="certificate-preview" type="button" data-pdf="certificates/python%20certificate.pdf" data-title="Python Programming Essentials">
+                        <embed class="certificate-thumb" src="certificates/python%20certificate.pdf#page=1" type="application/pdf" />
+                    </button>
+                    <h3>Python Programming Essentials</h3>
+                    <p>Verified completion for foundational Python concepts and practical coding skills.</p>
+                    <div class="certificate-actions">
+                        <a href="certificates/python%20certificate.pdf" target="_blank" rel="noopener noreferrer">View</a>
+                        <a href="certificates/python%20certificate.pdf" download>Download</a>
+                    </div>
+                </article>
+
+                <article class="certificate-card">
+                    <button class="certificate-preview" type="button" data-pdf="certificates/data%20science%20cert.pdf" data-title="Data Science Certification">
+                        <embed class="certificate-thumb" src="certificates/data%20science%20cert.pdf#page=1" type="application/pdf" />
+                    </button>
+                    <h3>Data Science Certification</h3>
+                    <p>Covered data analysis, interpretation, and practical applications in the field of data science.</p>
+                    <div class="certificate-actions">
+                        <a href="certificates/data%20science%20cert.pdf" target="_blank" rel="noopener noreferrer">View</a>
+                        <a href="certificates/data%20science%20cert.pdf" download>Download</a>
+                    </div>
+                </article>
+
+                <article class="certificate-card">
+                    <button class="certificate-preview" type="button" data-pdf="certificates/c%20certificate.pdf" data-title="C Programming Certificate">
+                        <embed class="certificate-thumb" src="certificates/c%20certificate.pdf#page=1" type="application/pdf" />
+                    </button>
+                    <h3>C Programming Certificate</h3>
+                    <p>Focused on programming fundamentals, control flow, arrays, and structured problem-solving in C.</p>
+                    <div class="certificate-actions">
+                        <a href="certificates/c%20certificate.pdf" target="_blank" rel="noopener noreferrer">View</a>
+                        <a href="certificates/c%20certificate.pdf" download>Download</a>
+                    </div>
+                </article>
+
+                <article class="certificate-card">
+                    <button class="certificate-preview" type="button" data-pdf="certificates/big%20data%20cert.pdf" data-title="Big Data Certification">
+                        <embed class="certificate-thumb" src="certificates/big%20data%20cert.pdf#page=1" type="application/pdf" />
+                    </button>
+                    <h3>Big Data Certification</h3>
+                    <p>Explored scalable data processing concepts and big data technologies used in modern systems.</p>
+                    <div class="certificate-actions">
+                        <a href="certificates/big%20data%20cert.pdf" target="_blank" rel="noopener noreferrer">View</a>
+                        <a href="certificates/big%20data%20cert.pdf" download>Download</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div class="certificate-modal" id="certificateModal" aria-hidden="true">
+        <div class="certificate-modal-backdrop" data-close="true"></div>
+        <div class="certificate-modal-panel" role="dialog" aria-modal="true" aria-labelledby="certificateModalTitle">
+            <button class="certificate-close" type="button" aria-label="Close certificate preview">×</button>
+            <h3 id="certificateModalTitle">Certificate</h3>
+            <iframe id="certificateFrame" title="Certificate preview" src="" loading="lazy"></iframe>
+        </div>
+    </div>
 
     <section class="stack-section section-padding" aria-label="Tools and learning">
         <div class="container">
